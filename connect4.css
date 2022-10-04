@@ -1,0 +1,85 @@
+/* game board table */
+
+#board td {
+  
+  width: 50px;
+  height: 50px;
+  border: solid 5px rgb(34, 115, 255);
+  border-radius: 50%;
+  background-color: white;
+
+}
+
+/* pieces are div within game table cells: draw as colored circles */
+
+.piece {
+  /* TODO: make into circles */
+  
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+ 
+  
+}
+
+/* TODO: make pieces red/blue,  depending on player 1/2 piece */
+
+/* column-top is table row of clickable areas for each column */
+
+#column-top td {
+  border: dashed 5px rgb(34, 115, 255);
+  background-color: azure;
+}
+
+/* change bg color to red or yellow on hover depending on turn  */
+/* #column-top td:hover {
+  background-color: rgba(1, 1, 1, 0.516);
+} */
+
+#column-top #playa2 td:hover {
+  background-color: rgba(1, 1, 1, 0.516);
+}
+#column-top #playa1 td:hover {
+  background-color: rgba(1, 1, 1, 0.516);
+}
+/* #0 td:hover{
+  background-color: black;
+} */
+
+/* #columun-top .playa2 td:hover{
+  background-color: rgba(198, 15, 219, 0.516);
+}
+#columun-top .playa1 td:hover{
+  background-color: rgba(198, 15, 219, 0.516);
+} */
+
+/* .playa2 td:hover{
+  background-color: rgba(198, 15, 219, 0.516);
+} */
+
+.p1 {
+  background-color: rgb(183, 85, 85);
+}
+
+.p2{
+  background-color:rgb(192, 187, 109);
+}
+
+#game {
+  display: inline-block;
+  text-align: center;
+  
+  border: solid 5px rgb(34, 115, 255);
+  background-color: rgb(34, 115, 255);
+ 
+}
+
+body {
+  text-align: center;
+  padding: 10%;
+ 
+}
+
+/* // to do list: try negative margins to fill in hole on gameboard? 
+reset board button
+ */
