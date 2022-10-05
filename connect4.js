@@ -195,5 +195,7 @@ makeHtmlBoard();
 //todo: optimize for mobile @media different sizes, possibly add reset game button, add undo move button
 //add div saying game data (whos turn, games played etc), better border as frame
 //10.5.22 : add undo button (save last move to a const, and undo that move), and add reset board button
+// fix animations - currently it's getting pushed up based on ending index. may need to follow step 10 instructions (absolute positioning divs)
 //  use images as buttons - no words on this project
 // change mouse color to match the player's turn 
+// change all divs to be ridged to give 3d effect
