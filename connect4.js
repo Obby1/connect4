@@ -49,6 +49,7 @@ function makeHtmlBoard() {
   // Create "top" tr element with id of `column top`. Add click event
   const top = document.createElement("tr");
    top.setAttribute("id", "column-top");
+   top.classList.add(`playa2`)
    top.addEventListener("click", handleClick);
 
 
@@ -120,7 +121,12 @@ function placeInTable(y, x) {
 
 function endGame(msg) {
   // TODO: pop up alert message
-  alert(`Game over! Player ${currPlayer} wins!`)
+  setTimeout(()=>
+    {alert(`Game over! Player ${currPlayer} wins! Play again?`);}, 500)
+    setTimeout(()=>
+    {location.reload();}, 550)
+  
+  // location.reload()
 }
 
 /** handleClick: handle click of column top to play piece */

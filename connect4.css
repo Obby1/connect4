@@ -18,8 +18,16 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
- 
+  animation: drop 0.55s ease-in;
   
+}
+
+@keyframes drop{
+  0%{transform: translateY(-300px)}
+
+  80%{transform: translateY(0px)}
+  90%{transform: translateY(-10px)}
+  100%{transform: translateY(0px)}
 }
 
 /* TODO: make pieces red/blue,  depending on player 1/2 piece */
@@ -36,11 +44,13 @@
   background-color: rgba(1, 1, 1, 0.516);
 } */
 
-#column-top #playa2 td:hover {
-  background-color: rgba(1, 1, 1, 0.516);
+.playa2 td:hover {
+  background-color: rgba(183, 85, 85)!important;
+  transition: all 0.5s;
 }
-#column-top #playa1 td:hover {
-  background-color: rgba(1, 1, 1, 0.516);
+.playa1 td:hover {
+  background-color: rgba(192, 187, 109)!important;
+  transition: all 0.5s;
 }
 /* #0 td:hover{
   background-color: black;
@@ -71,6 +81,7 @@
   
   border: solid 5px rgb(34, 115, 255);
   background-color: rgb(34, 115, 255);
+  border-radius:5px;
  
 }
 
@@ -82,4 +93,7 @@ body {
 
 /* // to do list: try negative margins to fill in hole on gameboard? 
 reset board button
+f5 on game over?
+undo button
+player 1 / player 2 text saying whos turn?
  */
