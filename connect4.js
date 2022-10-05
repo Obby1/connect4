@@ -193,3 +193,4 @@ makeBoard()
 makeHtmlBoard();
 
 //todo: optimize for mobile @media different sizes, possibly add reset game button, add undo move button
+//add div saying game data (whos turn, games played etc), better border as frame
