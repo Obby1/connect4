@@ -29,6 +29,7 @@ function makeBoard() {
 
 
 function makeHtmlBoard() {
+  // connect htmlBoard to board in html
     const htmlBoard = document.querySelector(`#board`);
 
   // Create "top" tr element with id of `column top`. Add click event
@@ -91,25 +92,32 @@ function placeInTable(y, x) {
     gamePiece.classList.add(`p2`)
     gamePiece.classList.remove(`p1`)
   }
-
+  // add gamePiece div to selected location 
   const spot = document.getElementById(`${y}-${x}`);
   spot.append(gamePiece);
-
 }
 
 
-function endGame(msg) {
+function endGame() {
   // announce game over, reset board
   //used setTimeout to finish falling div animation 
   setTimeout(()=>
     {alert(`Game over! Player ${currPlayer} wins! Play again?`);}, 500)
-    setTimeout(()=>
+  setTimeout(()=>
     {location.reload();}, 550)
- 
+}
+
+function tie (){
+  // announce tie, reset board
+  //used setTimeout to finish falling div animation 
+  setTimeout(()=>
+    {alert(`Game over! It's a tie! Play again?`);}, 500);
+  setTimeout(()=>
+    {location.reload();}, 550)
 }
 
 function handleClick(evt) {
-  // add classlists to top for changing highlights
+  // add classlists to top for changing hover effect
   const top =document.querySelector(`#column-top`)
   if (currPlayer === 1){
     top.classList.add(`playa1`)
@@ -130,7 +138,7 @@ function handleClick(evt) {
     return;
   }
 
-  // update board subarray with current player's move
+  // update board subarray with current player's move (p1 or p2)
   board[y][x] = currPlayer;
   // run function to change visual board appearance
   placeInTable(y, x);
@@ -138,27 +146,24 @@ function handleClick(evt) {
 
   // check for win
   if (checkForWin()) {
-    return endGame(`Player ${currPlayer} won!`);
+    return endGame();
   }
 
   // check for tie
-  // TODO: check if all cells in board are filled; if so call, call endGame
-  // check if every x,y value is true
+  // check if every x,y value on board returns true
   if (board.every(x => x.every(y => y))) {
-    return endGame('Tie!');
+    return  tie()    
   }
 
-  // switch players
-  // TODO: switch currPlayer 1 <-> 2
+  // switch players after each click event
   currPlayer = (currPlayer === 1)? 2: 1;
-  // console.log(x);
 }
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
 
 function checkForWin() {
   function _win(cells) {
-    // Check four cells to see if they're all color of current player
+    // Check four cells to see if they're all div(p1 or p2) of current player
     //  - cells: list of four (y, x) cells
     //  - returns true if all are legal coordinates & all match currPlayer
     return cells.every(
@@ -192,10 +197,15 @@ function checkForWin() {
 makeBoard()
 makeHtmlBoard();
 
-//todo: optimize for mobile @media different sizes, possibly add reset game button, add undo move button
-//add div saying game data (whos turn, games played etc), better border as frame
-//10.5.22 : add undo button (save last move to a const, and undo that move), and add reset board button
-// fix animations - currently it's getting pushed up based on ending index. may need to follow step 10 instructions (absolute positioning divs)
-//  use images as buttons - no words on this project
+//future todos: optimize for mobile @media different sizes, possibly add reset game button, add undo move button
+//add div declaring game data (whos turn, games played etc), better border as frame
+// add undo button (save last move to a const, and undo that move), and add reset board button
+// fix animations - currently it's getting pushed up based on ending index. (absolute positioning divs? loop to change animation somehow?)
+// use images as buttons - no words on this project
 // change mouse color to match the player's turn 
-// change all divs to be ridged to give 3d effect
+// add flashing gray bg to top row? 
+// update logic if row is full, top piece hoever effect changes to wrong color. should stay same color. 
+
+// old code for palce in table:   
+    // gamePiece.style.transform = "translateY(" + -50 * (y + 2) + "px" + ")";
+    // gamePiece.style.transform = "translateY(" + -50 * (y + 2) + "px" + ")";
