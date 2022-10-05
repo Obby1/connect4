@@ -194,3 +194,6 @@ makeHtmlBoard();
 
 //todo: optimize for mobile @media different sizes, possibly add reset game button, add undo move button
 //add div saying game data (whos turn, games played etc), better border as frame
+//10.5.22 : add undo button (save last move to a const, and undo that move), and add reset board button
+//  use images as buttons - no words on this project
+// change mouse color to match the player's turn 
